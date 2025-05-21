@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti ❤️</title>
+    <style>
+        body {
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+        
+        .contenedor {
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .mensaje {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(255, 105, 140, 0.3);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .mensaje::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, #ff0000, #ff69b4, #ff1493, #ff0000);
+            background-size: 400% 400%;
+            z-index: -1;
+            border-radius: 25px;
+            animation: brillo 3s ease infinite;
+            opacity: 0.7;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        
+        .corazon {
+            font-size: 50px;
+            margin: 20px 0;
+            animation: latido 1.5s infinite;
+            display: inline-block;
+        }
+        
+        .estrellas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .estrella {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: brillar 2s infinite alternate;
+        }
+        
+        @keyframes latido {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes brillo {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes brillar {
+            from { opacity: 0.3; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="mensaje">
+            <h1>Para Oruguita</h1>
+            <div class="corazon">🫶🏻✨</div>
+            <p>Te quiero más de lo que las palabras pueden expresar. Eres la luz que ilumina mis días, esa mujer virtuosa que supera mis oraciones</p>
+        </div>
+    </div>
+    
+    <div class="estrellas" id="estrellas"></div>
+    
+    <script>
+        const estrellas = document.getElementById('estrellas');
+        const cantidadEstrellas = 50;
+        
+        for (let i = 0; i < cantidadEstrellas; i++) {
+            const estrella = document.createElement('div');
+            estrella.classList.add('estrella');
+            
+            const tamaño = Math.random() * 2 + 1;
+            estrella.style.width = `${tamaño}px`;
+            estrella.style.height = `${tamaño}px`;
+            
+            estrella.style.left = `${Math.random() * 100}%`;
+            estrella.style.top = `${Math.random() * 100}%`;
+            
+            estrella.style.animationDelay = `${Math.random() * 2}s`;
+            
+            estrellas.appendChild(estrella);
+        }
+    </script>
+</body>
+</html>
